@@ -1,0 +1,122 @@
+
+#popupbackground, #popupcontainer {
+    width: 100%;
+    left: 0;
+    z-index: 10000001
+}
+
+#popupbackground {
+    display: none;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    text-align: center;
+    overflow-y: auto;
+    background: rgba(0, 0, 0, .8)
+}
+
+#popupcontainer {
+    position: relative;
+    top: 5%;
+    height: 85%;
+    text-align: left;
+    max-width: 595px;
+    margin: 0 auto;
+    background: #fff;
+    -webkit-box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0 0 7px rgba(0, 0, 0, .5);
+    box-shadow: 0 0 7px rgba(0, 0, 0, .5)
+}
+
+#popupcontents {
+    width: 100%;
+    height: 100%;
+    background: url(//s3.ap-south-1.amazonaws.com/townscript-common-resources/assets/loader.gif) center center no-repeat
+}
+
+.close-iframe {
+    background-size: 10px;
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    color: white;
+    outline: 0;
+    z-index: 100;
+    transform: rotateZ(45deg);
+    font-size: 3rem;
+}
+
+@media (max-width:741px) {
+    .close-iframe {
+        color: gray;
+        left: 90%;
+        top: -2%;
+    }
+}
+
+@media (min-width:741px) {
+    .close-iframe {
+        width: 30px;
+        height: 30px;
+        right: -45px;
+    }
+}
+
+.widget-header span.close-iframe {
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -12px
+}
+
+.tsbutton {
+    cursor: pointer;
+    background-color: #d01c68;
+    color: #fff;
+    border-color: #d01c68;
+    border-radius: 2px;
+    border-width: 2px;
+    text-transform: uppercase;
+    min-width: 195px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: .8px;
+    padding: 10px 16px;
+    line-height: 1.3333333
+}
+
+.tsbutton:hover {
+    background-color: #db5b94;
+    border-width: 2px;
+    border-color: #db5b94
+}
+
+.scroll-wrapper {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+}
+
+.scroll-wrapper {
+    overflow-y: auto;
+}
+
+.scroll-wrapper::-webkit-scrollbar {
+    width: 8px;
+    padding: 5px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #999;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+twinkle.css
+Displaying twinkle.css.
