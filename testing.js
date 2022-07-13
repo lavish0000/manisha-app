@@ -23,7 +23,7 @@ function tsClose() {
         document.body.style.removeProperty("position")
 }
 if (!document.getElementById("popupbackground")) {
-    document.head.innerHTML += '<link href="https://www.townscript.com/static/Bookingflow/css/style.css" rel="stylesheet" type="text/css" />';
+    document.head.innerHTML += '<link href="https://raw.githubusercontent.com/lavish0000/manisha-app/main/akansha.css" rel="stylesheet" type="text/css" />';
     var div = document.createElement("div");
     div.id = "popupbackground", div.innerHTML = '<div id="popupcontainer"><span class="close-iframe" id="tsclose"' +
         ' onclick="tsClose()" style = "">+</span><div id="popupcontents" class="scroll-wrapper"></div></div>', document.body.appendChild(div)
