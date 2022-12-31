@@ -74,9 +74,6 @@ echo "Starting server using PM2..."
 
 pm2 start index.js
 
-# Save the PM2 process list	
-pm2 save	
-
 # Generate startup script	
 pm2 startup	
 
@@ -84,7 +81,10 @@ pm2 startup
 startup_script=$(pm2 startup)	
 
 # Execute the startup script	
-eval "$startup_script"	
+eval "$startup_script"
+
+# Save the PM2 process list	
+pm2 save
 
 # Log success message	
 echo "Script completed successfully!"
