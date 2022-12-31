@@ -12,10 +12,6 @@ error_handler() {
 # Trap errors
 trap 'error_handler $LINENO' ERR
 
-
-# Update
-sudo apt-get update
-
 # Check if Node.js is installed
 if ! command -v node &> /dev/null
 then
@@ -39,6 +35,9 @@ then
     # Install the latest stable version of Node.js using nvm
     nvm install stable
 fi
+
+# Update package index files
+sudo apt-get update
 
 # Check if Nginx is installed
 if ! command -v nginx &> /dev/null
