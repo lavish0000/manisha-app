@@ -12,6 +12,10 @@ error_handler() {
 # Trap errors
 trap 'error_handler $LINENO' ERR
 
+
+# Update
+sudo apt-get update
+
 # Check if Node.js is installed
 if ! command -v node &> /dev/null
 then
