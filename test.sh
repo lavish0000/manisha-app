@@ -77,9 +77,6 @@ echo "Starting server using PM2..."
 
 pm2 start index.js
 
-# Generate startup script	
-pm2 startup	
-
 # Get the startup script	
 startup_script=$(pm2 startup)	
 
