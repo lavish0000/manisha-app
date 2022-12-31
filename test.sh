@@ -19,8 +19,8 @@ then
     echo "Installing Node.js..."
 
     # Install Node.js
-    curl -sL https://deb.nodesource.com/setup_14.x | bash -
-    apt-get install -y nodejs
+    sudo curl -sL https://deb.nodesource.com/setup_14.x | bash -
+    sudo apt-get install -y nodejs
 fi
 
 # Check if Nginx is installed
