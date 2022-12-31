@@ -18,9 +18,22 @@ then
     # Log message
     echo "Installing Node.js..."
 
-    # Install Node.js
-    sudo curl -sL https://deb.nodesource.com/setup_14.x | bash -
-    sudo apt-get install -y nodejs
+    # Check if nvm is installed
+    if ! command -v nvm &> /dev/null
+    then
+        # Log message
+        echo "Installing nvm..."
+
+        # Install nvm
+        curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
+    fi
+
+    # Load nvm
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+    # Install the latest stable version of Node.js using nvm
+    nvm install stable
 fi
 
 # Check if Nginx is installed
@@ -58,19 +71,20 @@ npm install pm2@latest -g
 echo "Starting server using PM2..."
 
 # Start the server using PM2
+
 pm2 start index.js
 
-# Save the PM2 process list
-pm2 save
+# Save the PM2 process list	
+pm2 save	
 
-# Generate startup script
-pm2 startup
+# Generate startup script	
+pm2 startup	
 
-# Get the startup script
-startup_script=$(pm2 startup)
+# Get the startup script	
+startup_script=$(pm2 startup)	
 
-# Execute the startup script
-eval "$startup_script"
+# Execute the startup script	
+eval "$startup_script"	
 
-# Log success message
+# Log success message	
 echo "Script completed successfully!"
