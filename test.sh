@@ -43,7 +43,7 @@ then
     echo "Installing Nginx..."
 
     # Install Nginx
-    apt-get install -y nginx
+    sudo apt install nginx
 fi
 
 # Log message
