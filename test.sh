@@ -78,13 +78,7 @@ echo "Starting server using PM2..."
 pm2 start index.js
 
 # Generate the Startup Script
-pm2 startup
-
-# Read the Startup Script command into a variable
-read -r startup_script
-
-# Execute the Startup Script command
-sudo bash -c "$startup_script"
+pm2 startup | xargs sudo bash -c
 
 # Save the PM2 process list	
 pm2 save
