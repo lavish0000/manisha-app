@@ -13,7 +13,7 @@ run_script() {
 
 if [ -z "$stored_version" ]; then
   # If the version is not stored, store it and run the script
-  sudo touch /etc/version
+  sudo chmod 644 /etc/version
   sudo echo "$version" > /etc/version
   run_script
 else
