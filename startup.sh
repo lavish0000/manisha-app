@@ -8,7 +8,7 @@ stored_version=$(cat /etc/version 2>/dev/null)
 
 run_script() {
   # Run the rest of the script
-  mkdir yo_running_no
+  sudo mkdir yo_running_no
 }
 
 if [ -z "$stored_version" ]; then
