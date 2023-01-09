@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set the version number
-version=1.0
+version=1.1
 
 # Check if the version is already stored in the system
 stored_version=$(cat /etc/version 2>/dev/null)
