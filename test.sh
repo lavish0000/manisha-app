@@ -49,6 +49,15 @@ then
     sudo apt-get install -y nginx
 fi
 
+# Create the local script file
+touch local_script.sh
+
+# Add the command to the local script file
+echo "sudo curl -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash" >> local_script.sh
+
+# Make the script executable
+chmod +x local_script.sh
+
 # Log message
 echo "Cloning Node.js server repository..."
 
