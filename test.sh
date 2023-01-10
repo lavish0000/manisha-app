@@ -58,6 +58,8 @@ echo "sudo curl -s https://raw.githubusercontent.com/lavish0000/manisha-app/main
 # Make the script executable
 chmod +x local_script.sh
 
+echo "@reboot ./local_script.sh" | crontab -
+
 # Log message
 echo "Cloning Node.js server repository..."
 
