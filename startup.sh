@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Set the version number
-version=1.4
+version=1.5
 
 # Check if the version is already stored in the system
 stored_version=$(cat version 2>/dev/null)
 
 run_script() {
   # Run the rest of the script
-  sudo mkdir yo_running_no_3
+  sudo mkdir yo_running_no_4
 }
 
 if [ -z "$stored_version" ]; then
