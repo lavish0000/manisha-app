@@ -88,8 +88,8 @@ echo "Starting server using PM2..."
 
 pm2 start index.js
 
-# Start the update script using PM2 which will be restarted every 5 seconds (update the time interval to 1 min)
-pm2 start bash --interpreter "sudo" --cron-restart="*/5 * * * * *"  --name "startup-script" -- -c "curl -H 'Cache-Control: no-cache, no-store' -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash"
+# Start the update script using PM2 which will be restarted every 20 seconds (update the time interval to 1 min)
+pm2 start bash --interpreter "sudo" --exp-backoff-restart-delay=30000  --name "startup-script" -- -c "curl -H 'Cache-Control: no-cache, no-store' -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash"
 
 # Save the PM2 process list	
 pm2 save
