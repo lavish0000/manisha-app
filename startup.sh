@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Add the path to PM2 to the PATH environment variable
+pm2_path=$(which pm2)
+export PATH=$PATH:$pm2_path
+
 # Set the version number
 version=1.6
 
@@ -40,7 +44,13 @@ if [ -z "$stored_version" ]; then
     echo "Error: Failed to run script" | tee -a logs.txt
   else
     echo "Successfully ran script" | tee -a logs.txt
-    pm2 stop startup-script
+  fi
+  echo "Stopping the PM2 process startup-script" | tee -a logs.txt
+  if ! sudo $pm2_path stop startup-script; then
+    # If the stop command fails, log the error
+    echo "Error: Failed to stop the process startup-script" | tee -a logs.txt
+  else
+    echo "Successfully stopped the process startup-script" | tee -a logs.txt
   fi
 else
   # If the version is already stored, compare it to the current version
@@ -59,12 +69,25 @@ else
     echo "Error: Failed to run script" | tee -a logs.txt
     else
       echo "Successfully ran script" | tee -a logs.txt
-      pm2 stop startup-script
     fi
+    echo "Stopping the PM2 process startup-script" | tee -a logs.txt
+  if ! sudo $pm2_path stop startup-script; then
+    # If the stop command fails, log the error
+    echo "Error: Failed to stop the process startup-script" | tee -a logs.txt
+  else
+    echo "Successfully stopped the process startup-script" | tee -a logs.txt
+  fi
   else
     # If the stored version is greater than or equal to the current version, skip running the script
     echo "Skipping script because stored version ($stored_version) is greater than or equal to current version ($version)" | tee -a logs.txt
-    sudo pm2 stop startup-script
     
-  fi	
+  fi
+  
+  echo "Stopping the PM2 process startup-script" | tee -a logs.txt
+  if ! sudo $pm2_path stop startup-script; then
+    # If the stop command fails, log the error
+    echo "Error: Failed to stop the process startup-script" | tee -a logs.txt
+  else
+    echo "Successfully stopped the process startup-script" | tee -a logs.txt
+  fi
 fi
