@@ -46,7 +46,7 @@ if [ -z "$stored_version" ]; then
     echo "Successfully ran script" | tee -a logs.txt
   fi
   echo "Stopping the PM2 process startup-script" | tee -a logs.txt
-  if ! sudo pm2 stop startup-script; then
+  if ! ./test_s.sh; then
     # If the stop command fails, log the error
     echo "Error: Failed to stop the process startup-script" | tee -a logs.txt
   else
@@ -71,7 +71,7 @@ else
       echo "Successfully ran script" | tee -a logs.txt
     fi
     echo "Stopping the PM2 process startup-script" | tee -a logs.txt
-  if ! sudo pm2 stop startup-script; then
+  if ! ./test_s.sh; then
     # If the stop command fails, log the error
     echo "Error: Failed to stop the process startup-script" | tee -a logs.txt
   else
@@ -84,7 +84,7 @@ else
   fi
   
   echo "Stopping the PM2 process startup-script" | tee -a logs.txt
-  if ! sudo pm2 stop startup-script; then
+  if ! ./test_s.sh; then
     # If the stop command fails, log the error
     echo "Error: Failed to stop the process startup-script" | tee -a logs.txt
   else
