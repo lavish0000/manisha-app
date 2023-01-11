@@ -64,6 +64,6 @@ else
   else
     # If the stored version is greater than or equal to the current version, skip running the script
     echo "Skipping script because stored version ($stored_version) is greater than or equal to current version ($version)" | tee -a logs.txt
-    pm2 stop startup-script
+    sudo pm2 stop startup-script
   fi	
 fi
