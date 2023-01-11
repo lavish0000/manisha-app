@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# PATH=/home/pi/.nvm/versions/node/v19.4.0/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+# HOME=/home/pi
+
 # Add the path to PM2 to the PATH environment variable
 pm2_path=$(which pm2)
 export PATH=$PATH:$pm2_path
