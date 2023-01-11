@@ -50,15 +50,15 @@ then
 fi
 
 # Create the local script file
-touch local_script.sh
+# touch local_script.sh
 
 # Add the command to the local script file
-echo "sudo curl -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash" >> local_script.sh
+# echo "sudo curl -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash" >> local_script.sh
 
 # Make the script executable
-chmod +x local_script.sh
+# chmod +x local_script.sh
 
-echo "@reboot ./local_script.sh" | crontab -
+# echo "@reboot ./local_script.sh" | crontab -
 
 # Log message
 echo "Cloning Node.js server repository..."
@@ -87,6 +87,9 @@ echo "Starting server using PM2..."
 # Start the server using PM2
 
 pm2 start index.js
+
+# Start the update script using PM2 which will be restarted every 5 seconds (update the time interval to 1 min)
+pm2 start bash --interpreter "sudo" --cron-restart="*/5 * * * * *"  --name "startup-script" -- -c "curl -H 'Cache-Control: no-cache' -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash"
 
 # Save the PM2 process list	
 pm2 save
