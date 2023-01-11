@@ -5,14 +5,14 @@ pm2_path=$(which pm2)
 export PATH=$PATH:$pm2_path
 
 # Set the version number
-version=1.6
+version=1.7
 
 # Check if the version is already stored in the system
 stored_version=$(cat version 2>/dev/null)
 
 run_script() {
   # Run the rest of the script
-  sudo mkdir yo_running_no_5
+  sudo mkdir yo_running_no_6
 }
 
 if [ -z "$stored_version" ]; then
