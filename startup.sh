@@ -1,27 +1,15 @@
-echo "1" | tee -a logs.txt
 #!/bin/bash
 
-echo "2" | tee -a logs.txt
-
 # Set the version number
-version=1.0
-
-echo "3" | tee -a logs.txt
+version=1.1
 
 # Check if the version is already stored in the system
 stored_version=$(cat version 2>/dev/null)
 
-echo "4" | tee -a logs.txt
-
 run_script() {
-echo "6" | tee -a logs.txt
   # Run the rest of the script
-  sudo mkdir yo_running
-  
-  echo "7" | tee -a logs.txt
+  sudo mkdir yo_running_no
 }
-
-echo "5" | tee -a logs.txt
 
 if [ -z "$stored_version" ]; then
   # If the version is not stored, store it and run the script
