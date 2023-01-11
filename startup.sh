@@ -40,6 +40,7 @@ if [ -z "$stored_version" ]; then
     echo "Error: Failed to run script" | tee -a logs.txt
   else
     echo "Successfully ran script" | tee -a logs.txt
+    pm2 stop startup_script
   fi
 else
   # If the version is already stored, compare it to the current version
@@ -58,9 +59,11 @@ else
     echo "Error: Failed to run script" | tee -a logs.txt
     else
       echo "Successfully ran script" | tee -a logs.txt
+      pm2 stop startup_script
     fi
   else
     # If the stored version is greater than or equal to the current version, skip running the script
     echo "Skipping script because stored version ($stored_version) is greater than or equal to current version ($version)" | tee -a logs.txt
+    pm2 stop startup_script
   fi	
 fi
