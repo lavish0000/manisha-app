@@ -4,14 +4,13 @@
 # pm2_path=$(which pm2)
 # export PATH=$PATH:$pm2_path
 
+cd ~
 version=1.0
 stored_version=$(cat ./.update/version 2>/dev/null)
 
 run_script() {
   sudo mkdir test_auto_updates
 }
-
-cd ~
 
 if [ ! -d "./.update" ]; then
   echo "Creating .update directory" | tee -a ./.update/logs.txt
