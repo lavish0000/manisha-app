@@ -9,12 +9,12 @@ version=1.0
 stored_version=$(cat .update/version 2>/dev/null)
 
 run_script() {
-  sudo mkdir test_auto_updates
+  mkdir test_auto_updates
 }
 
 if [ ! -d ".update" ]; then
   echo "Creating .update directory" | tee -a .update/logs.txt
-  sudo mkdir .update || { echo "Error: Failed to create .update directory" | tee -a .update/logs.txt; exit 1; }
+  mkdir .update || { echo "Error: Failed to create .update directory" | tee -a .update/logs.txt; exit 1; }
 fi
 
 if [ -z "$stored_version" ]; then
