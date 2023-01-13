@@ -11,6 +11,11 @@ run_script() {
   sudo mkdir test_auto_updates
 }
 
+if [ ! -d "./.update" ]; then
+  echo "Creating .update directory" | tee -a ./.update/logs.txt
+  mkdir ./.update || { echo "Error: Failed to create .update directory" | tee -a ./.update/logs.txt; exit 1; }
+fi
+
 if [ -z "$stored_version" ]; then
   echo "Creating version file" | tee -a ./.update/logs.txt
   touch ./.update/version || { echo "Error: Failed to create version file" | tee -a ./.update/logs.txt; exit 1; }
@@ -30,3 +35,4 @@ else
     echo "Skipping script because stored version ($stored_version) is greater than or equal to current version ($version)" | tee -a ./.update/logs.txt
   fi
 fi
+
