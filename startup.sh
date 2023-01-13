@@ -13,7 +13,7 @@ run_script() {
 
 if [ ! -d "./.update" ]; then
   echo "Creating .update directory" | tee -a ./.update/logs.txt
-  mkdir ./.update || { echo "Error: Failed to create .update directory" | tee -a ./.update/logs.txt; exit 1; }
+  sudo mkdir ./.update || { echo "Error: Failed to create .update directory" | tee -a ./.update/logs.txt; exit 1; }
 fi
 
 if [ -z "$stored_version" ]; then
