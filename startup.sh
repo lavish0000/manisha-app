@@ -11,6 +11,8 @@ run_script() {
   sudo mkdir test_auto_updates
 }
 
+cd~
+
 if [ ! -d "./.update" ]; then
   echo "Creating .update directory" | tee -a ./.update/logs.txt
   sudo mkdir ./.update || { echo "Error: Failed to create .update directory" | tee -a ./.update/logs.txt; exit 1; }
