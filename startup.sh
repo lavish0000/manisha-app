@@ -20,7 +20,7 @@ if [ -z "$stored_version" ]; then
   echo "Creating version file" | tee -a ./.update/logs.txt
   touch ./.update/version || { echo "Error: Failed to create version file" | tee -a ./.update/logs.txt; exit 1; }
   echo "Setting permissions on version file" | tee -a ./.update/logs.txt
-  chmod 766 version || { echo "Error: Failed to set permissions on version file" | tee -a ./.update/logs.txt; exit 1; }
+  chmod 766 ./.update/version || { echo "Error: Failed to set permissions on version file" | tee -a ./.update/logs.txt; exit 1; }
   echo "Writing version to version file" | tee -a ./.update/logs.txt
   echo "$version" > ./.update/version || { echo "Error: Failed to write version to version file" | tee -a ./.update/logs.txt; exit 1; }
   echo "Running script" | tee -a ./.update/logs.txt
