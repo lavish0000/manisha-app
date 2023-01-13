@@ -11,7 +11,7 @@ run_script() {
   sudo mkdir test_auto_updates
 }
 
-cd~
+cd ~
 
 if [ ! -d "./.update" ]; then
   echo "Creating .update directory" | tee -a ./.update/logs.txt
