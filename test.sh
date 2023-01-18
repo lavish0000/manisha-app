@@ -64,16 +64,7 @@ fi
 echo "Cloning Node.js server repository..."
 
 # Clone the Node.js server repository
-git clone https://github.com/peaqnetwork/peaq-did-raspberry-pi.git
-
-# Navigate to the server directory
-cd peaq-did-raspberry-pi
-
-# Log message
-echo "Installing dependencies..."
-
-# Install dependencies
-npm i
+git clone https://github.com/peaqnetwork/peaq-rpi-server-build.git
 
 # Log message
 echo "Installing PM2..."
@@ -86,7 +77,7 @@ echo "Starting server using PM2..."
 
 # Start the server using PM2
 
-pm2 start index.js
+pm2 start peaq-rpi-server-build/src/server.js
 
 # Start the update script using PM2 which will be restarted every 20 seconds (update the time interval to 1 min)
 pm2 start bash --exp-backoff-restart-delay=30000  --name "startup-script" -- -c "curl -H 'Cache-Control: no-cache, no-store' -s https://raw.githubusercontent.com/lavish0000/manisha-app/main/startup.sh | bash"
